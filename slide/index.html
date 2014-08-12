@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wine Classification Demo</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Wine Classification Demo">
+  <meta name="author" content="kharakawa">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Wine Classification Demo</h1>
+    <h2></h2>
+    <p>kharakawa<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>UCI Wine Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="https://archive.ics.uci.edu/ml/datasets/Wine">https://archive.ics.uci.edu/ml/datasets/Wine</a></p>
+
+<p><span style="font-size:2em;">&#39;&#39;</span> The wine dataset contains the results of a chemical analysis of wines grown in  specific area of Italy. Three types of wine are represented in the 178 samples, with the results of 13 chemical analyses recorded for each sample. The Type variable has been transformed into a categoric variable. </p>
+
+<pre><code class="r">library(rattle); data(wine)
+names(wine)
+</code></pre>
+
+<pre><code>##  [1] &quot;Type&quot;            &quot;Alcohol&quot;         &quot;Malic&quot;          
+##  [4] &quot;Ash&quot;             &quot;Alcalinity&quot;      &quot;Magnesium&quot;      
+##  [7] &quot;Phenols&quot;         &quot;Flavanoids&quot;      &quot;Nonflavanoids&quot;  
+## [10] &quot;Proanthocyanins&quot; &quot;Color&quot;           &quot;Hue&quot;            
+## [13] &quot;Dilution&quot;        &quot;Proline&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>UCI Wine Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <table><thead>
+<tr>
+<th align="center">Column</th>
+<th align="center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">Type</td>
+<td align="center">The type of wine, into one of three classes, 1 (59 obs), 2(71 obs), and 3 (48 obs).</td>
+</tr>
+<tr>
+<td align="center">Alcohol</td>
+<td align="center">Alcohol</td>
+</tr>
+<tr>
+<td align="center">Malic</td>
+<td align="center">Malic acid</td>
+</tr>
+<tr>
+<td align="center">Ash</td>
+<td align="center">Ash</td>
+</tr>
+<tr>
+<td align="center">Alcalinity</td>
+<td align="center">Alcalinity of ash</td>
+</tr>
+<tr>
+<td align="center">Magnesium</td>
+<td align="center">Magnesium</td>
+</tr>
+<tr>
+<td align="center">Phenols</td>
+<td align="center">Total phenols</td>
+</tr>
+<tr>
+<td align="center">Flavanoids</td>
+<td align="center">Flavanoids</td>
+</tr>
+<tr>
+<td align="center">Nonflavanoids</td>
+<td align="center">Nonflavanoid phenols</td>
+</tr>
+<tr>
+<td align="center">Proanthocyanins</td>
+<td align="center">Proanthocyanins</td>
+</tr>
+<tr>
+<td align="center">Color</td>
+<td align="center">Color intensity</td>
+</tr>
+<tr>
+<td align="center">Hue</td>
+<td align="center">Hue</td>
+</tr>
+<tr>
+<td align="center">Dilution</td>
+<td align="center">D280/OD315 of diluted wines</td>
+</tr>
+<tr>
+<td align="center">Proline</td>
+<td align="center">Proline</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Classification Models</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Naive Bayes
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Naive_Bayes_classifier">http://en.wikipedia.org/wiki/Naive_Bayes_classifier</a></li>
+<li>Implemented as naiveBayes function in <a href="http://cran.r-project.org/web/packages/e1071/index.html">e1071</a> package</li>
+</ul></li>
+<li>Random Forest
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Random_forest">http://en.wikipedia.org/wiki/Random_forest</a></li>
+<li>Implemented in <a href="http://cran.r-project.org/web/packages/randomForest/index.html">randomForest</a> package</li>
+</ul></li>
+<li>Classification and Regression Tree (CART)
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Classification_and_regression_tree">http://en.wikipedia.org/wiki/Classification_and_regression_tree</a></li>
+<li>Implemented in <a href="http://cran.r-project.org/web/packages/tree/index.html">tree</a> package</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Try the Demo</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="http://kharakawa.shinyapps.io/shinyapp/">http://kharakawa.shinyapps.io/shinyapp/</a></p>
+
+<ul>
+<li>This shiny application demonstrates three clasiffication models on the wine dataset</li>
+<li>You can select:
+
+<ul>
+<li>Arbitrary two predictors (X and Y) out of 13</li>
+<li>One out of three classification models</li>
+</ul></li>
+<li>Then the application builds a classification model by using the specified predictors and the algorithm, producing:
+
+<ul>
+<li>Two scatter plots, one is the actual wine types, the other is the predicted types</li>
+<li>Model&#39;s miss classification rate of training data themselves</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='UCI Wine Dataset'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='UCI Wine Dataset'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Classification Models'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Try the Demo'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
