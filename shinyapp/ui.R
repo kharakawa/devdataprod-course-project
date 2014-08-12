@@ -19,7 +19,7 @@ shinyUI(fluidPage(
              "You can select arbitrary two predictors (X and Y) and a classification model on the left pane.",
              "Then, on the server side, a model is trained and predictions on the training data are made by using the model.",
              "The right pane shows comparison plots of actual types and predicted types, ",
-             "as well as miss classification ratio of the model.",
+             "as well as the training set miss classification ratio of the model.",
              "You will notice that random forest generally achieves higher fit to the training data (i.e. smaller miss classification ratio).")
   )),
   

@@ -56,7 +56,7 @@ shinyServer(function(input, output) {
   # Print the specified model name and miss classification ratio
   output$status <- renderText({
 #     p(sprintf("Model=%s", input$model)), br(), p(sprintf("Model=%s", input$model))
-    sprintf("Model=%s, Miss Classification (Internal Error) Ratio=%.2f",
+    sprintf("Model=%s, Training Set Miss Classification Ratio=%.2f",
             input$model, missClass())
   })
 })
