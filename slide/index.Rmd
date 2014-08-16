@@ -63,7 +63,7 @@ names(wine)
 
 http://kharakawa.shinyapps.io/devdataprod-cp/
 
-* This shiny application demonstrates three clasiffication models on the wine dataset
+* This shiny application demonstrates three classification models on the wine dataset
 * You can select:
  * Arbitrary two predictors (X and Y) out of 13
  * One out of three classification models
