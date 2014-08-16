@@ -61,7 +61,7 @@ names(wine)
 
 ## Try the Demo
 
-http://kharakawa.shinyapps.io/shinyapp/
+http://kharakawa.shinyapps.io/devdataprod-cp/
 
 * This shiny application demonstrates three clasiffication models on the wine dataset
 * You can select:

@@ -70,7 +70,7 @@ names(wine)
 
 ## Try the Demo
 
-http://kharakawa.shinyapps.io/shinyapp/
+http://kharakawa.shinyapps.io/devdataprod-cp/
 
 * This shiny application demonstrates three clasiffication models on the wine dataset
 * You can select:
@@ -78,4 +78,4 @@ http://kharakawa.shinyapps.io/shinyapp/
  * One out of three classification models
 * Then the application builds a classification model by using the specified predictors and the algorithm, producing:
  * Two scatter plots, one is the actual wine types, the other is the predicted types
- * Model's miss classification rate of training data themselves
+ * Model's miss classification rate of training data
